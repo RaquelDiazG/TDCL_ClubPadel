@@ -48,6 +48,7 @@ function cargarVistaContacto() {
 function cargarVistaRegistro() {
     $.get("registro.html", function (data) {
         $(".main").html(data);
+        ComponentsPickers.init();
     });
 }
 function cargarVistaLogin() {
