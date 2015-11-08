@@ -1,76 +1,49 @@
 <div class="container">
-    <ul class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="javascript:;">Pages</a></li>
-        <li class="active">Login</li>
-    </ul>
+    <!--    <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="javascript:;">Pages</a></li>
+            <li class="active">Login</li>
+        </ul>-->
     <!-- BEGIN SIDEBAR & CONTENT -->
     <div class="row margin-bottom-40">
-        <!-- BEGIN SIDEBAR -->
-        <div class="sidebar col-md-3 col-sm-3">
-            <ul class="list-group margin-bottom-25 sidebar-menu">
-                <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
-                <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
-                <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
-                <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
-                <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
-                <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
-                <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
-            </ul>
-        </div>
-        <!-- END SIDEBAR -->
 
         <!-- BEGIN CONTENT -->
-        <div class="col-md-9 col-sm-9">
+        <div class="col-md-12 col-sm-12">
             <h1>Login</h1>
             <div class="content-form-page">
                 <div class="row">
                     <div class="col-md-7 col-sm-7">
-                        <form class="form-horizontal form-without-legend" role="form">
+                        <form class="form-horizontal form-without-legend" role="form" id="loginForm" onsubmit="return login()">
                             <div class="form-group">
-                                <label for="email" class="col-lg-4 control-label">Email <span class="require">*</span></label>
+                                <label for="text" class="col-lg-4 control-label">Usuario <span class="require">*</span></label>
                                 <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="email">
+                                    <input type="text" class="form-control" name="usuario" id="usuario" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="col-lg-4 control-label">Password <span class="require">*</span></label>
+                                <label for="email" class="col-lg-4 control-label">Correo <span class="require">*</span></label>
                                 <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="password">
+                                    <input type="email" class="form-control" name="correo" id="correo" required="required">
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-offset-4 padding-left-0">
-                                    <a href="page-forgotton-password.html">Forget Password?</a>
+                            <div class="form-group">
+                                <label for="password" class="col-lg-4 control-label">Clave <span class="require">*</span></label>
+                                <div class="col-lg-8">
+                                    <input type="password" class="form-control" name="clave" id="clave" required="required">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
-                                    <button type="submit" class="btn btn-primary">Login</button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-10 padding-right-30">
-                                    <hr>
-                                    <div class="login-socio">
-                                        <p class="text-muted">or login using:</p>
-                                        <ul class="social-icons">
-                                            <li><a href="javascript:;" data-original-title="facebook" class="facebook" title="facebook"></a></li>
-                                            <li><a href="javascript:;" data-original-title="Twitter" class="twitter" title="Twitter"></a></li>
-                                            <li><a href="javascript:;" data-original-title="Google Plus" class="googleplus" title="Google Plus"></a></li>
-                                            <li><a href="javascript:;" data-original-title="Linkedin" class="linkedin" title="LinkedIn"></a></li>
-                                        </ul>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="col-md-4 col-sm-4 pull-right">
                         <div class="form-info">
-                            <h2><em>Important</em> Information</h2>
-                            <p>Duis autem vel eum iriure at dolor vulputate velit esse vel molestie at dolore.</p>
-
-                            <button type="button" class="btn btn-default">More details</button>
+                            <h2><em>Información importante</em></h2>
+                            <p>Para poder realizar reservas debe identificarse correctamente.</p>
+                            <!--<button type="button" class="btn btn-default">More details</button>-->
                         </div>
                     </div>
                 </div>
