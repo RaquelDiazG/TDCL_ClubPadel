@@ -3,24 +3,25 @@ var ContactUs = function () {
     return {
         //main function to initiate the module
         init: function () {
-			var map;
-			$(document).ready(function(){
-			  map = new GMaps({
-				div: '#map',
-	            lat: -13.004333,
-				lng: -38.494333,
-			  });
-			   var marker = map.addMarker({
-		            lat: -13.004333,
-					lng: -38.494333,
-		            title: 'Loop, Inc.',
-		            infoWindow: {
-		                content: "<b>Loop, Inc.</b> 795 Park Ave, Suite 120<br>San Francisco, CA 94107"
-		            }
-		        });
+            var map;
+            $(document).ready(function () {
+                map = new GMaps({
+                    div: '#map',
+                    zoom: 17,
+                    lat: 40.389769,
+                    lng: -3.628424,
+                });
+                var marker = map.addMarker({
+                    lat: 40.389769,
+                    lng: -3.628424,
+                    title: 'Universidad Politécnica de Madrid',
+                    infoWindow: {
+                        content: "<b>Universidad Politécnica de Madrid</b> Escuela Técnica Superior de Ingeniería de Sistemas Informáticos"
+                    }
+                });
 
-			   marker.infoWindow.open(map, marker);
-			});
+                marker.infoWindow.open(map, marker);
+            });
         }
     };
 
