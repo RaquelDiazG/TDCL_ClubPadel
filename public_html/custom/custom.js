@@ -26,6 +26,7 @@ function cargarVistaNormativa() {
 function cargarVistaReservar() {
     $.get("reservar.html", function (data) {
         $(".main").html(data);
+        ComponentsPickers.init();
     });
 }
 function cargarVistaInstalaciones() {
