@@ -30,7 +30,7 @@ function cargarVistaNormativa() {
     });
 }
 function cargarVistaVerInstalaciones() {
-    $.get("verInstalaciones.html", function (data) {
+    $.get("instalaciones.html", function (data) {
         $(".main").html(data);
         Layout.init();
         seleccionarMenu('Instalaciones');
@@ -41,13 +41,6 @@ function cargarVistaReservar() {
         $(".main").html(data);
         Layout.init();
         ComponentsPickers.init();
-        seleccionarMenu('Instalaciones');
-    });
-}
-function cargarVistaInstalaciones() {
-    $.get("instalaciones.html", function (data) {
-        $(".main").html(data);
-        Layout.init();
         seleccionarMenu('Instalaciones');
     });
 }
