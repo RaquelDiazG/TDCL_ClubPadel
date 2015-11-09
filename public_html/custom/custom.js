@@ -11,6 +11,7 @@ function cargarVistaInicio() {
         $(".main").html(data);
         Layout.init();
         RevosliderInit.initRevoSlider();
+        seleccionarMenu('Inicio');
     });
 }
 
@@ -18,18 +19,21 @@ function cargarVistaGaleria() {
     $.get("galeria.html", function (data) {
         $(".main").html(data);
         Layout.init();
+        seleccionarMenu('Instalaciones');
     });
 }
 function cargarVistaNormativa() {
     $.get("normativa.html", function (data) {
         $(".main").html(data);
         Layout.init();
+        seleccionarMenu('Instalaciones');
     });
 }
 function cargarVistaVerInstalaciones() {
     $.get("verInstalaciones.html", function (data) {
         $(".main").html(data);
         Layout.init();
+        seleccionarMenu('Instalaciones');
     });
 }
 function cargarVistaReservar() {
@@ -37,18 +41,21 @@ function cargarVistaReservar() {
         $(".main").html(data);
         Layout.init();
         ComponentsPickers.init();
+        seleccionarMenu('Instalaciones');
     });
 }
 function cargarVistaInstalaciones() {
     $.get("instalaciones.html", function (data) {
         $(".main").html(data);
         Layout.init();
+        seleccionarMenu('Instalaciones');
     });
 }
 function cargarVistaTarifas() {
     $.get("tarifas.html", function (data) {
         $(".main").html(data);
         Layout.init();
+        seleccionarMenu('Tarifas');
     });
 }
 function cargarVistaContacto() {
@@ -57,6 +64,7 @@ function cargarVistaContacto() {
         Layout.init();
         Layout.initUniform();
         ContactUs.init();
+        seleccionarMenu('Contacto');
     });
 }
 function cargarVistaRegistro() {
@@ -64,11 +72,19 @@ function cargarVistaRegistro() {
         $(".main").html(data);
         Layout.init();
         ComponentsPickers.init();
+        seleccionarMenu('Registro');
     });
 }
 function cargarVistaLogin() {
     $.get("login.html", function (data) {
         $(".main").html(data);
         Layout.init();
+        seleccionarMenu('Login');
     });
+}
+function seleccionarMenu(menu) {
+    //Eliminamos todas las selecciones que haya
+    $(".header-navigation>ul>li.active").removeClass("active");
+    //Seleccionamos el nuevo menu
+    $("li:contains('" + menu + "')").addClass("active");
 }
