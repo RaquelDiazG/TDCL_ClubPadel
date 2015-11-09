@@ -50,26 +50,26 @@
                     <!-- BEGIN DESCRIPTION -->
                     <div class="col-md-7 text-center">
                         <div class="col-md-5">
-                            <h2>Consultar fechas</h2>
-                            <form class="form-horizontal" role="form" name="formConsultarFecha" id="formConsultarFecha" method="GET">
+                            <h2>Consultar horas disponibles</h2>
+                            <form class="form-horizontal" role="form" name="formConsultarFecha" id="formConsultarFecha" method="GET" onsubmit="consultarReservas()">
                                 <div class="date-picker" id="fechaReserva" data-date-format="mm/dd/yyyy"></div>
                                 <button type="submit" class="btn btn-primary margin-top-20">
-                                    Consultar fechas
+                                    Consultar horas
                                     <i class="fa fa-arrow-right"></i>
                                 </button>
                             </form>
                         </div>
 
                         <div class="col-md-7">
-                            <h2>Fechas disponibles</h2>
-                            <form class="form-horizontal" role="form" name="formReservar" id="formReservar" method="POST">
+                            <h2>Horas disponibles</h2>
+                            <form class="form-horizontal" role="form" name="formReservar" id="formReservar" method="POST" onsubmit="reservar()">
                                 <div class="radio-list">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Fecha 1</label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Hora 1</label>
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Fecha 2 </label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Hora 2 </label>
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> Fecha 3 </label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> Hora 3 </label>
                                 </div>
                                 <button type="submit" class="btn btn-primary margin-top-20">
                                     Realizar reserva

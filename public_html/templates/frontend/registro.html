@@ -13,13 +13,19 @@
             <div class="content-form-page">
                 <div class="row">
                     <div class="col-md-7 col-sm-7">
-                        <form class="form-horizontal" role="form" name="formRegistro" id="formRegistro" method="POST">
+                        <form class="form-horizontal" role="form" name="formRegistro" id="formRegistro" method="POST" onsubmit="registro()">
                             <fieldset>
                                 <legend>Información personal</legend>
                                 <div class="form-group">
-                                    <label for="usuario" class="col-lg-4 control-label">Usuario o correo <span class="require">*</span></label>
+                                    <label for="usuario" class="col-lg-4 control-label">Usuario<span class="require">*</span></label>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="idUsuario" id="idUsuario" placeholder="Identificador de usuario o correo electrónico" required="required">
+                                        <input type="text" class="form-control" name="idUsuario" id="idUsuario" placeholder="Identificador de usuario" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="correo" class="col-lg-4 control-label">Correo <span class="require">*</span></label>
+                                    <div class="col-lg-8">
+                                        <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo electrónico" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group">
