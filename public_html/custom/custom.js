@@ -26,6 +26,12 @@ function cargarVistaNormativa() {
         Layout.init();
     });
 }
+function cargarVistaVerInstalaciones() {
+    $.get("verInstalaciones.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+    });
+}
 function cargarVistaReservar() {
     $.get("reservar.html", function (data) {
         $(".main").html(data);
