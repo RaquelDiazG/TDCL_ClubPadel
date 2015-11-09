@@ -1,3 +1,5 @@
+
+/*Logo + titulo*/
 .title-logo{
     float: left;
     text-decoration: none;
@@ -8,15 +10,36 @@
     margin-right: 50px;
 }
 
+/*Colores tabla tarifas*/
 .table-background-primary{
     background-color: #67bd3c
 }
-
 .table-background-second{
     background: #fbfef2;
 }
 
-/* necesario para ajustar el footer al final de la pagina */
+/*Colores + margenes lista de instalaciones*/
+.colorBullets>li{
+    list-style:none;
+    margin-top: 15px;
+}
+.colorBullets>li:before {
+    content: "";
+    position:relative;
+    left: -10px;
+    background-color:#67bd3c;
+    display:inline-block;
+    width:10px;
+    height:10px;
+    border-radius:50%
+}
+
+/*Imagen instalaciones*/
+#imgInstalaciones{
+    box-shadow: 10px 10px 5px #888888;
+}
+
+/* Necesario para ajustar el footer al final de la pagina */
 .page-container{
     height:auto;
     min-height: calc(100vh - 163px);
