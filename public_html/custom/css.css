@@ -11,6 +11,13 @@
 .table-background-primary{
     background-color: #67bd3c
 }
+
 .table-background-second{
     background: #fbfef2;
+}
+
+/* necesario para ajustar el footer al final de la pagina */
+.page-container{
+    height:auto;
+    min-height: calc(100vh - 163px);
 }
