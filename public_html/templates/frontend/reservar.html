@@ -47,31 +47,35 @@
                     </div>
                     <!-- END CAROUSEL -->
 
-                    <!-- BEGIN PORTFOLIO DESCRIPTION -->
+                    <!-- BEGIN DESCRIPTION -->
                     <div class="col-md-7 text-center">
                         <div class="col-md-5">
                             <h2>Consultar fechas</h2>
-                            <div class="date-picker" data-date-format="mm/dd/yyyy"></div>
-                            <button class="btn btn-primary margin-top-20">
-                                Consultar fechas
-                                <i class="fa fa-arrow-right"></i>
-                            </button>
+                            <form class="form-horizontal" role="form" name="formConsultarFecha" id="formConsultarFecha" method="GET">
+                                <div class="date-picker" id="fechaReserva" data-date-format="mm/dd/yyyy"></div>
+                                <button type="submit" class="btn btn-primary margin-top-20">
+                                    Consultar fechas
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
+                            </form>
                         </div>
 
                         <div class="col-md-7">
                             <h2>Fechas disponibles</h2>
-                            <div class="radio-list">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Fecha 1</label>
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Fecha 2 </label>
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> Fecha 3 </label>
-                            </div>
-                            <button class="btn btn-primary margin-top-20">
-                                Realizar reserva
-                                <i class="fa fa-arrow-right"></i>
-                            </button>
+                            <form class="form-horizontal" role="form" name="formReservar" id="formReservar" method="POST">
+                                <div class="radio-list">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Fecha 1</label>
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Fecha 2 </label>
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> Fecha 3 </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary margin-top-20">
+                                    Realizar reserva
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <!-- END PORTFOLIO DESCRIPTION -->
