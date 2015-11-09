@@ -7,3 +7,10 @@
     font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,AppleGothic,sans-serif;
     margin-right: 50px;
 }
+
+.table-background-primary{
+    background-color: #67bd3c
+}
+.table-background-second{
+    background: #fbfef2;
+}
