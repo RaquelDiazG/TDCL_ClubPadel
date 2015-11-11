@@ -106,6 +106,9 @@ function login() {
             if (token !== null && token !== undefined) { //ok
                 console.log("ok login");
                 $(".alert-success").removeClass("hidden");
+                //Cambiamos el menu de login por logout
+                $("#login").addClass("hidden");
+                $("#logout").removeClass("hidden");
             } else {//error
                 console.log("error login");
                 $(".alert-danger").removeClass("hidden");
