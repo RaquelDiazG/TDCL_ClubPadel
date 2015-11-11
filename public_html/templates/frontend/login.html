@@ -7,8 +7,20 @@
             <h1>Login</h1>
             <div class="content-form-page">
                 <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-sm-12 text-center">
+                        <div class="alert alert-success hidden">
+                            <strong>¡Éxito!</strong>
+                            Usted se ha logueado correctamente.
+                        </div>
+                        <div class="alert alert-danger hidden">
+                            <strong>¡Error!</strong>
+                            <!--Mensaje personalizado desde JS-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-7 col-sm-7">
-                        <form class="form-horizontal form-without-legend" role="form" name="formLogin" id="formLogin" method="GET" onsubmit="login()">
+                        <form class="form-horizontal form-without-legend" role="form" name="formLogin" id="formLogin" onsubmit="login()">
                             <div class="form-group">
                                 <label for="usuario" class="col-lg-4 control-label">Usuario</label>
                                 <div class="col-lg-8">

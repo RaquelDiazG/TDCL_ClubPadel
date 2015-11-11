@@ -1,10 +1,8 @@
 $(document).ready(function () {
 
-    //Al iniciar cargar vista principal
+//Al iniciar cargar vista principal
     cargarVistaInicio();
-
 });
-
 //Funciones para cargar las vistas
 function cargarVistaInicio() {
     $.get("inicio.html", function (data) {
@@ -76,8 +74,48 @@ function cargarVistaLogin() {
     });
 }
 function seleccionarMenu(menu) {
-    //Eliminamos todas las selecciones que haya
+//Eliminamos todas las selecciones que haya
     $(".header-navigation>ul>li.active").removeClass("active");
     //Seleccionamos el nuevo menu
     $("li:contains('" + menu + "')").addClass("active");
+}
+
+//PETICIONES A LA API
+function login() {
+    var idUsuario = $("#idUsuario").val();
+    var correo = $("#correo").val();
+    var password = $("#clave").val();
+    var id = idUsuario;
+    if (idUsuario === null || idUsuario === '') {
+        id = correo;
+    }
+    $.ajax({
+        data: {
+            id: id,
+            password: password
+        },
+        dataType: "JSON",
+        type: "GET",
+        url: "http://salonso.etsisi.upm.es/miw_serv/padel/conexion.php",
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            var token = response.token;
+            var error = response.errorMessage;
+            if (token !== null && token !== undefined) { //ok
+                console.log("ok login");
+                $(".alert-success").removeClass("hidden");
+            } else {//error
+                console.log("error login");
+                $(".alert-danger").removeClass("hidden");
+                $(".alert-danger").text("<strong>¡Error!</strong> " + error);
+            }
+        },
+        error: function (response) {
+            console.log("error peticion");
+            $(".alert-danger").removeClass("hidden");
+            $(".alert-danger").text("<strong>¡Error!</strong> Ha ocurrido un error al realizar la petición");
+        },
+    });
 }
