@@ -80,6 +80,13 @@ function seleccionarMenu(menu) {
     $("li:contains('" + menu + "')").addClass("active");
 }
 
+function logout() {
+    console.log("logout");
+    //Cambiamos el menu de login por logout
+    $("#logout").addClass("hidden");
+    $("#login").removeClass("hidden");
+}
+
 //PETICIONES A LA API
 function login() {
     var idUsuario = $("#idUsuario").val();
