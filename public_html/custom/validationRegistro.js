@@ -1,17 +1,17 @@
 
 $(document).ready(function() {
-	
+
 	FormValidationRegistro();
 
 });
 
-function FormValidationRegistro(){
+function FormValidationRegistro() {
 	var e = $("#formRegistro");
 	e.validate({
 		lang: 'es',
 		errorElement: "span",
 		errorClass: "help-block help-block-error",
-		focusInvalid: !1,
+		focusInvalid: true,
 		ignore: "",
 		rules: {
 			idUsuario: {
@@ -24,7 +24,7 @@ function FormValidationRegistro(){
 				email: true,
 				required: function(element) {
 					return $("#idUsuario").is(':blank');
-				}, 
+				},
 			},
 			fechaNacimiento: {
 				required: true,
@@ -43,7 +43,7 @@ function FormValidationRegistro(){
 			
 		},
 		invalidHandler: function(e, t) {
-			
+
 		}, highlight: function(e) {
 			$(e).closest(".form-group").addClass("has-error");
 		}, unhighlight: function(e) {
@@ -51,7 +51,12 @@ function FormValidationRegistro(){
 		}, success: function(e) {
 			e.closest(".form-group").removeClass("has-error");
 		}, submitHandler: function(e) {
+			//Hacemos el submit del formulario con la llamada a la funcion
 			registro();
 		}});
-	}
+}
 
+//PETICION A LA API
+function registro() {
+
+}
