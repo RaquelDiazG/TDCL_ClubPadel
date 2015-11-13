@@ -64,6 +64,7 @@ function cargarVistaRegistro() {
         $(".main").html(data);
         Layout.init();
         ComponentsPickers.init();
+		FormValidationRegistro();
         seleccionarMenu('Registro');
     });
 }
