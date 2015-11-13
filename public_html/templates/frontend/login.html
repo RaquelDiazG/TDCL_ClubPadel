@@ -13,14 +13,16 @@
                             Usted se ha logueado correctamente.
                         </div>
                         <div class="alert alert-danger hidden">
-                            <strong>¡Error!</strong>
-                            <!--Mensaje personalizado desde JS-->
+                            <!--Mensaje personalizado desde JS para errores de la petición de login-->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-7 col-sm-7">
-                        <form class="form-horizontal form-without-legend" role="form" name="formLogin" id="formLogin" onsubmit="login()">
+						 <div class="alert alert-danger display-hide">
+                              <button class="close" data-close="alert"></button> Hay errores en el formulario. 
+						 </div>
+                        <form class="form-horizontal form-without-legend" role="form" name="formLogin" id="formLogin">
                             <div class="form-group">
                                 <label for="usuario" class="col-lg-4 control-label">Usuario</label>
                                 <div class="col-lg-8">
@@ -36,7 +38,7 @@
                             <div class="form-group">
                                 <label for="password" class="col-lg-4 control-label">Clave <span class="require">*</span></label>
                                 <div class="col-lg-8">
-                                    <input type="password" class="form-control" name="clave" id="clave" placeholder="Clave de acceso" required="required">
+                                    <input type="password" class="form-control" name="clave" id="clave" placeholder="Clave de acceso">
                                 </div>
                             </div>
                             <div class="row">

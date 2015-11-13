@@ -3,6 +3,7 @@ $(document).ready(function () {
 //Al iniciar cargar vista principal
     cargarVistaInicio();
 });
+
 //Funciones para cargar las vistas
 function cargarVistaInicio() {
     $.get("inicio.html", function (data) {
@@ -70,6 +71,7 @@ function cargarVistaLogin() {
     $.get("login.html", function (data) {
         $(".main").html(data);
         Layout.init();
+		FormValidationLogin();
         seleccionarMenu('Login');
     });
 }
