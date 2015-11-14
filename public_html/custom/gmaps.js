@@ -1,4 +1,4 @@
-var ContactUs = function () {
+var GoogleMaps = function () {
 
     return {
         //main function to initiate the module

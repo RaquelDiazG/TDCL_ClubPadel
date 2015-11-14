@@ -1,90 +1,90 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
 //Al iniciar cargar vista principal
-	cargarVistaInicio();
+    cargarVistaInicio();
 });
 
 //Funciones para cargar las vistas
 function cargarVistaInicio() {
-	$.get("inicio.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		RevosliderInit.initRevoSlider();
-		seleccionarMenu('Inicio');
-	});
+    $.get("inicio.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        RevosliderInit.initRevoSlider();
+        seleccionarMenu('Inicio');
+    });
 }
 
 function cargarVistaGaleria() {
-	$.get("galeria.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		seleccionarMenu('Instalaciones');
-	});
+    $.get("galeria.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        seleccionarMenu('Instalaciones');
+    });
 }
 function cargarVistaNormativa() {
-	$.get("normativa.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		seleccionarMenu('Instalaciones');
-	});
+    $.get("normativa.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        seleccionarMenu('Instalaciones');
+    });
 }
 function cargarVistaVerInstalaciones() {
-	$.get("instalaciones.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		seleccionarMenu('Instalaciones');
-	});
+    $.get("instalaciones.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        seleccionarMenu('Instalaciones');
+    });
 }
 function cargarVistaReservar() {
-	$.get("reservar.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		ComponentsPickers.init();
-		seleccionarMenu('Instalaciones');
-	});
+    $.get("reservar.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        ComponentsPickers.init();
+        seleccionarMenu('Instalaciones');
+    });
 }
 function cargarVistaTarifas() {
-	$.get("tarifas.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		seleccionarMenu('Tarifas');
-	});
+    $.get("tarifas.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        seleccionarMenu('Tarifas');
+    });
 }
 function cargarVistaContacto() {
-	$.get("contacto.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		Layout.initUniform();
-		ContactUs.init();
-		seleccionarMenu('Contacto');
-	});
+    $.get("contacto.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        Layout.initUniform();
+        GoogleMaps.init();
+        seleccionarMenu('Contacto');
+    });
 }
 function cargarVistaRegistro() {
-	$.get("registro.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		ComponentsPickers.init();
-		FormValidationRegistro();
-		seleccionarMenu('Registro');
-	});
+    $.get("registro.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        ComponentsPickers.init();
+        FormValidationRegistro();
+        seleccionarMenu('Registro');
+    });
 }
 function cargarVistaLogin() {
-	$.get("login.html", function(data) {
-		$(".main").html(data);
-		Layout.init();
-		FormValidationLogin();
-		seleccionarMenu('Login');
-	});
+    $.get("login.html", function (data) {
+        $(".main").html(data);
+        Layout.init();
+        FormValidationLogin();
+        seleccionarMenu('Login');
+    });
 }
 function seleccionarMenu(menu) {
 //Eliminamos todas las selecciones que haya
-	$(".header-navigation>ul>li.active").removeClass("active");
-	//Seleccionamos el nuevo menu
-	$("li:contains('" + menu + "')").addClass("active");
+    $(".header-navigation>ul>li.active").removeClass("active");
+    //Seleccionamos el nuevo menu
+    $("li:contains('" + menu + "')").addClass("active");
 }
 
 function logout() {
-	//Cambiamos el menu de login por logout
-	$("#logout").addClass("hidden");
-	$("#login").removeClass("hidden");
+    //Cambiamos el menu de login por logout
+    $("#logout").addClass("hidden");
+    $("#login").removeClass("hidden");
 }
