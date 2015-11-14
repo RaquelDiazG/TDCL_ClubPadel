@@ -6,6 +6,7 @@ $(document).ready(function () {
 });
 
 function FormValidationLogin() {
+
     var form = $("#formLogin");
     form.validate({
         lang: 'es',
@@ -42,9 +43,26 @@ function FormValidationLogin() {
         }, success: function (e) {
             e.closest(".form-group").removeClass("has-error");
         }, submitHandler: function (e) {
-            //Hacemos el submit del formulario con la llamada a la funcion
-            login();
+            //Validamos el drag and drop
+            if (validationDragDrop()) {
+                //Hacemos el submit del formulario con la llamada a la funcion
+                login();
+            }
         }});
+}
+
+function validationDragDrop() {
+    console.log($("#dropDiv").find("img").length);
+    if ($("#dropDiv").find("img").length > 0) {
+        //Eliminamos los errores
+        $("#dropDiv").closest(".form-group").removeClass("has-error");
+        $("#dropDiv").parent().find("span").remove();
+        return true;
+    } else {
+        $("#dropDiv").closest(".form-group").addClass("has-error");
+        $("#dropDiv").after('<span id="dropDiv-error" class="help-block help-block-error margin-left-20">Introduce la imagen en la caja</span>');
+        return false;
+    }
 }
 
 //PETICION A LA API

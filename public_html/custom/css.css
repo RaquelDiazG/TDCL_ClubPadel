@@ -49,3 +49,11 @@
 .has-error .form-control {
     border-color: #a94442 !important;
 }
+
+/*Drag and drop login*/
+#dropDiv {
+    width: 240px;
+    height: 240px;
+    padding:10px;
+    border:1px solid #dbdbdb;
+}

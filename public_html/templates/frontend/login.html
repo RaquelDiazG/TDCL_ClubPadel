@@ -19,9 +19,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-7 col-sm-7">
-						 <div class="alert alert-danger display-hide">
-                              <button class="close" data-close="alert"></button> Hay errores en el formulario. 
-						 </div>
+                        <div class="alert alert-danger display-hide">
+                            <button class="close" data-close="alert"></button> Hay errores en el formulario.
+                        </div>
                         <form class="form-horizontal form-without-legend" role="form" name="formLogin" id="formLogin">
                             <div class="form-group">
                                 <label for="usuario" class="col-lg-4 control-label">Usuario</label>
@@ -41,6 +41,13 @@
                                     <input type="password" class="form-control" name="clave" id="clave" placeholder="Clave de acceso">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-md-7">
+                                    <img id="dragImage" src="../../custom/img/miw.png" draggable="true" ondragstart="drag(event)">
+                                </div>
+                                <div class="col-md-5 form-control" id="dropDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
                                     <button type="submit" class="btn btn-primary">
