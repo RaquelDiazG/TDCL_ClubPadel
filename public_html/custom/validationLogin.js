@@ -16,20 +16,21 @@ function FormValidationLogin() {
         ignore: "",
         rules: {
             idUsuario: {
-                maxlength: 100,
+                maxlength: 20,
                 required: function (element) {
                     return $("#correo").is(':blank');
                 },
             },
             correo: {
                 email: true,
+                maxlength: 100,
                 required: function (element) {
                     return $("#idUsuario").is(':blank');
                 },
             },
             clave: {
                 required: true,
-                maxlength: 100
+                maxlength: 20
             },
         }, highlight: function (e) {
             $(e).closest(".form-group").addClass("has-error");
