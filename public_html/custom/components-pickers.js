@@ -10,6 +10,11 @@ var ComponentsPickers = function () {
                     todayHighlight: true,
                     language: 'es'
                 });
+                $('.date-picker').on("changeDate", function () {
+                    $('#fechaReserva').val(
+                            $('.date-picker').datepicker('getFormattedDate')
+                            );
+                });
             }
         }
     };
