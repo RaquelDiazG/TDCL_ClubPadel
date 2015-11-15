@@ -45,9 +45,9 @@ ClubPadelApp.controller("loginController", function ($scope, $http) {
     }
 
     $scope.login = function () {
-        var idUsuario = $("#idUsuario").val();
-        var correo = $("#correo").val();
-        var password = $("#clave").val();
+        var idUsuario = $scope.idUsuario;
+        var correo = $scope.correo;
+        var clave = $scope.clave;
         var id = idUsuario;
         if (idUsuario === null || idUsuario === '') {
             id = correo;
@@ -56,7 +56,7 @@ ClubPadelApp.controller("loginController", function ($scope, $http) {
                 "http://salonso.etsisi.upm.es/miw_serv/padel/conexion.php",
                 {params: {
                         "id": id,
-                        "password": password
+                        "password": clave
                     }
                 }
         ).success(function (datos, status, headers, config) {

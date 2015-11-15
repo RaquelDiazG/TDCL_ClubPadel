@@ -4,6 +4,12 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
     FormValidationRegistro();
     seleccionarMenu('Registro');
 
+    //Asignar las variables
+    var idUsuario = $scope.idUsuario;
+    var correo = $scope.correo;
+    var clave = $scope.clave;
+    var fechaNacimiento = $scope.fechaNacimiento;
+
 //    jQuery.validator.addMethod("existeUsuario", function (value, element) {
 //
 //    }, "El usuario ya existe");
@@ -54,7 +60,6 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             }});
     }
     $scope.existeUsuario = function () {
-        var idUsuario = $("#idUsuario").val();
         $http.get(
                 "http://salonso.etsisi.upm.es/miw_serv/padel/username.php",
                 {params: {
@@ -81,7 +86,6 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
     }
 
     $scope.existeCorreo = function () {
-        var correo = $("#correo").val();
         $http.get(
                 "http://salonso.etsisi.upm.es/miw_serv/padel/email.php",
                 {params: {
@@ -109,10 +113,6 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
 
 
     $scope.registro = function () {
-        var idUsuario = $("#idUsuario").val();
-        var correo = $("#correo").val();
-        var clave = $("#clave").val();
-        var fechaNacimiento = $("#fechaNacimiento").val();
         $.ajax({
             method: "POST",
             dataType: "json",
@@ -124,9 +124,7 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
                 "birthDate": fechaNacimiento,
             },
             success: function (datos) {
-                console.log(datos)
                 var error = datos.errorMessage;
-                console.log(error)
                 if (error.indexOf("no error") > -1) { //ok
                     //Mostramos la realimentacion
                     $(".alert-danger").addClass("hidden");
