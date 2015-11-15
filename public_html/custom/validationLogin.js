@@ -31,11 +31,6 @@ function FormValidationLogin() {
                 required: true,
                 maxlength: 100
             },
-        },
-        messages: {
-        },
-        invalidHandler: function (e, t) {
-
         }, highlight: function (e) {
             $(e).closest(".form-group").addClass("has-error");
         }, unhighlight: function (e) {
@@ -52,7 +47,6 @@ function FormValidationLogin() {
 }
 
 function validationDragDrop() {
-    console.log($("#dropDiv").find("img").length);
     if ($("#dropDiv").find("img").length > 0) {
         //Eliminamos los errores
         $("#dropDiv").closest(".form-group").removeClass("has-error");
@@ -65,7 +59,7 @@ function validationDragDrop() {
     }
 }
 
-//PETICION A LA API
+//PETICION AJAX A LA API
 function login() {
     var idUsuario = $("#idUsuario").val();
     var correo = $("#correo").val();

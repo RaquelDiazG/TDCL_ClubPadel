@@ -5,6 +5,7 @@ $(document).ready(function () {
 });
 
 //Funciones para cargar las vistas
+
 function cargarVistaInicio() {
     $.get("inicio.html", function (data) {
         $(".main").html(data);
@@ -76,14 +77,16 @@ function cargarVistaLogin() {
         seleccionarMenu('Login');
     });
 }
+
+//Funcion para seleccionar el menu cuando se carga una vista
 function seleccionarMenu(menu) {
-//Eliminamos todas las selecciones que haya
+    //Eliminamos todas las selecciones que haya
     $(".header-navigation>ul>li.active").removeClass("active");
     //Seleccionamos el nuevo menu
     $("li:contains('" + menu + "')").addClass("active");
 }
 
-function logout() {
+function logout() { //Al hacer click en el boton logout del menu
     //Cambiamos el menu de login por logout
     $("#logout").addClass("hidden");
     $("#login").removeClass("hidden");
