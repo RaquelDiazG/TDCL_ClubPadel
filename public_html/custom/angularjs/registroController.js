@@ -4,15 +4,8 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
     FormValidationRegistro();
     seleccionarMenu('Registro');
 
-    //Asignar las variables
-    var idUsuario = $scope.idUsuario;
-    var correo = $scope.correo;
-    var clave = $scope.clave;
-    var fechaNacimiento = $scope.fechaNacimiento;
-
-//    jQuery.validator.addMethod("existeUsuario", function (value, element) {
-//
-//    }, "El usuario ya existe");
+    $scope.errorExisteUsuario = false;
+    $scope.errorExisteCorreo = false;
 
     function FormValidationRegistro() {
         var form = $("#formRegistro");
@@ -26,7 +19,6 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
                 idUsuario: {
                     maxlength: 20,
                     required: true,
-                    existeUsuario: false
                 },
                 correo: {
                     email: true,
@@ -52,18 +44,19 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             }, success: function (e) {
                 e.closest(".form-group").removeClass("has-error");
             }, submitHandler: function (e) {
-                //Validamos el drag and drop
+                //Validamos que no exista el usuario, el correo y el drag and drop
 //                if (validationDragDrop()) {
-                //Hacemos el submit del formulario con la llamada a la funcion
-                $scope.registro();
-//                }
+                if (!$scope.errorExisteUsuario && !$scope.errorExisteCorreo) {
+                    //Hacemos el submit del formulario con la llamada a la funcion
+                    $scope.registro();
+                }
             }});
     }
     $scope.existeUsuario = function () {
         $http.get(
                 "http://salonso.etsisi.upm.es/miw_serv/padel/username.php",
                 {params: {
-                        "username": idUsuario,
+                        "username": $scope.idUsuario,
                     }
                 }
         ).success(function (datos, status, headers, config) {
@@ -72,16 +65,18 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             console.log(error);
             if (error === "no error") { //no existe
                 $("#idUsuario").closest(".form-group").removeClass("has-error");
-                return false;
+                $scope.errorExisteUsuario = false;
+                $("#idUsuario").find("span").remove();
             } else {//si existe
                 $("#idUsuario").closest(".form-group").addClass("has-error");
-                return true;
+                $scope.errorExisteUsuario = true;
+                $("#idUsuario").after('<span id="idUsuario-error" class="help-block help-block-error">El usuario ya existe</span>');
             }
             //Mostramos el error por consola
             console.log("ERROR = " + error);
         }).error(function (datos, status, headers, config) {
             console.log("error peticion");
-            return true;
+            $scope.errorExisteUsuario = true;
         });
     }
 
@@ -89,7 +84,7 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
         $http.get(
                 "http://salonso.etsisi.upm.es/miw_serv/padel/email.php",
                 {params: {
-                        "email": correo,
+                        "email": $scope.correo,
                     }
                 }
         ).success(function (datos, status, headers, config) {
@@ -98,16 +93,18 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             console.log(error);
             if (error === "no error") { //no existe
                 $("#correo").closest(".form-group").removeClass("has-error");
-                return false;
+                $scope.errorExisteCorreo = false;
+                $("#correo").find("span").remove();
             } else {//si existe
                 $("#correo").closest(".form-group").addClass("has-error");
-                return true;
+                $scope.errorExisteCorreo = true;
+                $("#correo").after('<span id="correo-error" class="help-block help-block-error">El correo ya existe</span>');
             }
             //Mostramos el error por consola
             console.log("ERROR = " + error);
         }).error(function (datos, status, headers, config) {
             console.log("error peticion");
-            return true;
+            $scope.errorExisteCorreo = true;
         });
     }
 
@@ -118,10 +115,10 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             dataType: "json",
             url: "http://salonso.etsisi.upm.es/miw_serv/padel/usuario.php",
             data: {
-                "username": idUsuario,
-                "email": correo,
-                "password": clave,
-                "birthDate": fechaNacimiento,
+                "username": $scope.idUsuario,
+                "email": $scope.correo,
+                "password": $scope.clave,
+                "birthDate": $scope.fechaNacimiento,
             },
             success: function (datos) {
                 var error = datos.errorMessage;
@@ -129,20 +126,17 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
                     //Mostramos la realimentacion
                     $(".alert-danger").addClass("hidden");
                     $(".alert-success").removeClass("hidden");
-                    return false;
                 } else {//error
                     //Mostramos la realimentacion
                     $(".alert-success").addClass("hidden");
                     $(".alert-danger").removeClass("hidden");
                     $(".alert-danger").html("<strong>¡Error!</strong> " + error);
-                    return true;
                 }
                 //Mostramos el error por consola
                 console.log("REGISTRO = " + error);
             },
             error: function (datos) {
                 console.log("error peticion");
-                return true;
             }
         });
     }
