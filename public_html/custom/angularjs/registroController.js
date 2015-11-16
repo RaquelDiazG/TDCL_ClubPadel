@@ -4,9 +4,11 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
     FormValidationRegistro();
     seleccionarMenu('Registro');
 
+    //Variables para controlar si hay error en el usuario y en el correo
     $scope.errorExisteUsuario = false;
     $scope.errorExisteCorreo = false;
 
+    //VALIDACION CON EL PLUGIN JQUERY VALIDATOR
     function FormValidationRegistro() {
         var form = $("#formRegistro");
         form.validate({
@@ -51,6 +53,8 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
                 }
             }});
     }
+
+    // En el onblur del usuario
     $scope.existeUsuario = function () {
         $http.get(
                 "http://salonso.etsisi.upm.es/miw_serv/padel/username.php",
@@ -61,7 +65,6 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
         ).success(function (datos, status, headers, config) {
             var respuesta = angular.fromJson(datos);
             var error = respuesta.errorMessage;
-            console.log(error);
             if (error === "no error") { //no existe
                 $("#idUsuario").closest(".form-group").removeClass("has-error");
                 $scope.errorExisteUsuario = false;
@@ -75,10 +78,11 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             console.log("ERROR = " + error);
         }).error(function (datos, status, headers, config) {
             console.log("error peticion");
-            $scope.errorExisteUsuario = true;
+            $scope.errorExisteUsuario = false;
         });
     }
 
+    // En el onblur del correo
     $scope.existeCorreo = function () {
         $http.get(
                 "http://salonso.etsisi.upm.es/miw_serv/padel/email.php",
@@ -89,7 +93,6 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
         ).success(function (datos, status, headers, config) {
             var respuesta = angular.fromJson(datos);
             var error = respuesta.errorMessage;
-            console.log(error);
             if (error === "no error") { //no existe
                 $("#correo").closest(".form-group").removeClass("has-error");
                 $scope.errorExisteCorreo = false;
@@ -103,11 +106,11 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             console.log("ERROR = " + error);
         }).error(function (datos, status, headers, config) {
             console.log("error peticion");
-            $scope.errorExisteCorreo = true;
+            $scope.errorExisteCorreo = false;
         });
     }
 
-
+    //Se llama a esta funcion cuando el formulario es correcto
     $scope.registro = function () {
         $.ajax({
             method: "POST",
@@ -139,44 +142,6 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
             }
         });
     }
-//    $scope.registro = function () {
-//        var idUsuario = $("#idUsuario").val();
-//        var correo = $("#correo").val();
-//        var clave = $("#clave").val();
-//        var fechaNacimiento = $("#fechaNacimiento").val();
-//        $http({
-//            method: "POST",
-//            url: "http://salonso.etsisi.upm.es/miw_serv/padel/usuario.php",
-//            data: {
-//                "username": idUsuario,
-//                "email": correo,
-//                "password": clave,
-//                "birthDate": fechaNacimiento,
-//            },
-//            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-//        }).success(function (datos, status, headers, config) {
-//            console.log(datos);
-//            console.log(status);
-//            console.log(headers);
-//            console.log(config);
-//            var respuesta = angular.fromJson(datos);
-//            console.log(respuesta);
-//            var error = respuesta.errorMessage;
-//            console.log(error);
-//            if (error === "no error") { //no existe
-//                $("#idUsuario").closest(".form-group").removeClass("has-error");
-//                return false;
-//            } else {//si existe
-//                $("#idUsuario").closest(".form-group").addClass("has-error");
-//                return true;
-//            }
-//            //Mostramos el error por consola
-//            console.log("ERROR = " + error);
-//        }).error(function (datos, status, headers, config) {
-//            console.log("error peticion");
-//            return true;
-//        });
-//    }
 });
 
 

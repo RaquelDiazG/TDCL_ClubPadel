@@ -3,6 +3,7 @@ ClubPadelApp.controller("loginController", function ($scope, $http) {
     FormValidationLogin();
     seleccionarMenu('Login');
 
+    //VALIDACION CON EL PLUGIN JQUERY VALIDATOR
     function FormValidationLogin() {
         var form = $("#formLogin");
         form.validate({
@@ -44,6 +45,7 @@ ClubPadelApp.controller("loginController", function ($scope, $http) {
             }});
     }
 
+    //Se llama a esta funcion cuando el formulario es correcto
     $scope.login = function () {
         var idUsuario = $scope.idUsuario;
         var correo = $scope.correo;
