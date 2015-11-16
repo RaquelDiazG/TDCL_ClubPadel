@@ -45,8 +45,7 @@ ClubPadelApp.controller("registroController", function ($scope, $http) {
                 e.closest(".form-group").removeClass("has-error");
             }, submitHandler: function (e) {
                 //Validamos que no exista el usuario, el correo y el drag and drop
-//                if (validationDragDrop()) {
-                if (!$scope.errorExisteUsuario && !$scope.errorExisteCorreo) {
+                if (validationDragDrop() && !$scope.errorExisteUsuario && !$scope.errorExisteCorreo) {
                     //Hacemos el submit del formulario con la llamada a la funcion
                     $scope.registro();
                 }
